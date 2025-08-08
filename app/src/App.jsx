@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faRotateRight, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 import Sections from './components/Sections'
 import EditModal from './components/Editor'
-
-library.add(fas, far, fab)
 
 function App() {
   const [config, setConfig] = useState({})
@@ -31,8 +26,8 @@ function App() {
   return (
     <>
       <div id="ops-bar">
-        <FontAwesomeIcon icon="fa-solid fa-rotate-right" onClick={ getConfig } />
-        <FontAwesomeIcon icon="fa-solid fa-pen-to-square" onClick={ () => {setEditModal(!editModal)} }/>
+        <FontAwesomeIcon icon={faRotateRight} onClick={getConfig} />
+        <FontAwesomeIcon icon={faPenToSquare} onClick={() => {setEditModal(!editModal)}}/>
       </div>
       <div id="main-text">
         <div id="title">

@@ -1,9 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import './Editor.css'
 
@@ -29,7 +27,7 @@ function EditModal({config, setConfig, setEditModal}) {
   <div id="editor-wrapper">
     <div id="editor-title">
       <div className="left">Edit Config</div>
-      <div className="right"><FontAwesomeIcon icon="fa-solid fa-xmark" onClick={() => {setEditModal(false)}} /></div>
+      <div className="right"><FontAwesomeIcon icon={faXmark} onClick={() => {setEditModal(false)}} /></div>
     </div>
     <div>
       <textarea ref={editField}></textarea>
