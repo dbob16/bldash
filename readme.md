@@ -30,7 +30,6 @@ Then you can create your own config.
 File structure (an example):
 
 ```json
-```json
 {
   "title": "Enter your server's title here",
   "description": "Description line goes here",
@@ -48,7 +47,7 @@ File structure (an example):
         },
         {
           "title": "Item 2 Name",
-          "description": Item 2 Description",
+          "description": "Item 2 Description",
           "icon": "Optional filename for icon",
           "url": "URL to link to"
         }
