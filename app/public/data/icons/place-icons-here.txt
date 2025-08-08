@@ -1,0 +1,24 @@
+You can place your icons in this directory.
+
+Then when you access them, you can do so using the "icon" definitions under sections, inside of an item. So for instance your JSON should look like the following, if you're trying to specify "icon.png" as your icon, in this folder:
+
+
+{
+  "title": "Your Server Title",
+  "description": "Your Description",
+  "sections": [
+    {
+        "title": "Section Title",
+        "description": "Description",
+        "color": "(CSS Color Definition)",
+        "items": [
+          {
+            "title": "Item Title",
+            "description": "Description",
+            "icon": "icon.png",
+            "url": "https://url-to-your-site"
+          },
+        ]
+      },
+  ]
+  }

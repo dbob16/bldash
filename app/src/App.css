@@ -1,0 +1,32 @@
+#ops-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#ops-bar svg {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #333;
+  border-radius: 0.5rem;
+}
+
+#main-text {
+  border-bottom: solid #fff 1px;
+}
+
+#footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  #footer {
+    display: none;
+  }
+}

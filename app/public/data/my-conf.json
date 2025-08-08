@@ -1,0 +1,40 @@
+{
+  "title": "BuildLess Dashboard",
+  "description": "To change this in your configuration please overwrite 'data/my-conf.json' on your host.",
+  "sections": [
+    {
+      "title": "My Websites",
+      "description": "Visit websites which belong to me.",
+      "color": "#f55",
+      "items": [
+        {
+          "title": "Personal Website",
+          "description": "The link to my personal website.",
+          "url": "https://dilangilluly.us"
+        },
+        {
+          "title": "My Ko-Fi",
+          "description": "Buy me a coffee or otherwise donate to me.",
+          "url": "https://ko-fi.com/techguydilan"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "description": "Resources which I used in this project.",
+      "color": "#77f",
+      "items": [
+        {
+          "title": "Vite",
+          "description": "What I used to start and package this project.",
+          "url": "https://vite.dev/"
+        },
+        {
+          "title": "Dashy",
+          "description": "This project is inspired from Dashy.",
+          "url": "https://dashy.to/"
+        }
+      ]
+    }
+  ]
+}
