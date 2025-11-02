@@ -35,9 +35,12 @@
     }
 
     .icon {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
         width: 82px;
         height: 82px;
-        border: solid 1px var(--accent-color);
     }
 
     .icon img {
