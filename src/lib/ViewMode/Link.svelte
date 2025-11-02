@@ -5,7 +5,7 @@
 <a href={item.url || ""} class="item" target="_blank">
     {#if item.icon}
     <div class="icon">
-        <img src="icons/{item.icon}" alt={item.title}>
+        <img src="data/icons/{item.icon}" alt={item.title}>
     </div>
     {/if}
     <div class="text">
