@@ -1,43 +1,89 @@
-# Svelte + Vite
+# BuildLess Dash
 
-This template should help get you started developing with Svelte in Vite.
+This is a project I started to make a homelab dashboard which doesn't have to be built every time the configuration changes.
 
-## Recommended IDE Setup
+So tapping into some knowledge I had already known about React JS, as well as some new-found knowledge, I built this thing over the course of a few days.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## Features
 
-## Need an official Svelte framework?
+The reasons and features I built into this is listed below:
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- **Simplicity**: The coding is extremely simple, making it so that it's difficult to go wrong.
+- **Buildless Config Changes**: As named, the configuration changes don't require a rebuild of the application.
+- **Small build sizes**: Taking advantage of Vite's packaging system, it gets the docker image size below 200MB. Other homelab dashboards typically weigh in at ~600MB. Making BuildLess a third of the size.
+- **Low resource usage**: It doesn't take a lot of resources away from your server. Since the server just hosts the app the same as it would host a static site.
+- **Live config testing**: It has a built-in text editor which allows you to write and test configs. Then you can open it back up to copy it into your text editor to save it to the server.
 
-## Technical considerations
+## Hosting
 
-**Why use this over SvelteKit?**
+To host it you just need a webserver. For convenience I did package it as a docker image. So you can host a basic instance of it by running it in docker:
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+(from directory where you want your files for it)
+`mkdir data`
+`docker run -d --name bldash --restart unless-stopped -v ./data:/app/data:ro -p 8080:8080 dbob16/bldash:latest`
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+Then you can create your own config.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+`cd data`
+`nvim dashboard.json` replace nvim with the editor of your choice.
 
-**Why include `.vscode/extensions.json`?**
+File structure (an example):
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+```json
+{
+  "title": "Enter your server's title here",
+  "description": "Description line goes here",
+  "sections": [
+    {
+      "title": "Section 1 title here",
+      "description": "Section 1 Description here",
+      "color": "red",
+      "items": [
+        {
+          "title": "Item 1 Name",
+          "description": "Item 1 Description",
+          "icon": "Optional filename for icon",
+          "url": "URL to link to"
+        },
+        {
+          "title": "Item 2 Name",
+          "description": "Item 2 Description",
+          "icon": "Optional filename for icon",
+          "url": "URL to link to"
+        }
+      ]
+    },
+    {
+      "title": "Section 2 title here",
+      "description": "Section 2 Description here",
+      "color": "blue",
+      "items": [
+        {
+          "title": "Item 3 Name",
+          "description": "Item 3 Description",
+          "url": "URL to link to"
+        },
+        {
+          "title": "Item 4 Name",
+          "description": "Item 4 Description",
+          "url": "URL to link to"
+        }
+      ]
+    }
+  ]
+}
 ```
+
+Edit to your heart's content.
+
+### Icons 
+
+To configure it with your own icons, you just have to make an `icons` directory in your `data` directory, and copy the icons you want to use into it (the `icons` dir). Then specify the icon for each item that you want one for.
+
+### Why JSON?
+
+Yeah, I know some people really don't like JSON, it is messy. But it is natively supported in Javascript, including React. It's the simplest way to allow it to dynamically fetch configurations.
+
+## Hosting on your own server
+
+Pretty much all you have to do is copy and extract one of the release tars to your server, then edit the json file.
