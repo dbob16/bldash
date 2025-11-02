@@ -1,0 +1,22 @@
+:root {
+    color: #ffffff;
+    background-color: #000000;
+    font-size: 16pt;
+
+    --accent-color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+}
+
+button {
+    display: block;
+    color: #ffffff;
+    background-color: #333333;
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: solid 1px #ffffff;
+    border-radius: 0.25rem;
+}

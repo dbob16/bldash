@@ -1,0 +1,19 @@
+.red {
+    --accent-color: #fc5757;
+}
+
+.blue {
+    --accent-color: #7171ff;
+}
+
+.orange {
+    --accent-color: #fb971d;
+}
+
+.purple {
+    --accent-color: #ba4bff;
+}
+
+.yellow {
+    --accent-color: #ffec16;
+}
